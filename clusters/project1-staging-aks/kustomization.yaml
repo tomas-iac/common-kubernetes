@@ -1,0 +1,5 @@
+resources:
+- ../../environments/staging
+
+patchesStrategicMerge:
+  - nginx-ingress.yaml

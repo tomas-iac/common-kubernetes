@@ -7,7 +7,7 @@ spec:
   values:
     controller:
       service:
-        loadBalancerIP: 10.0.1.200
+        loadBalancerIP: 10.2.1.10
         annotations:
           service.beta.kubernetes.io/azure-load-balancer-internal: "true"
-          service.beta.kubernetes.io/azure-load-balancer-internal-subnet: "intlb-subnet"
+          service.beta.kubernetes.io/azure-load-balancer-internal-subnet: "lb-subnet"
