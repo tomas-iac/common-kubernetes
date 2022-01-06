@@ -1,3 +1,4 @@
 resources:
 - namespaces.yaml
 - cert-manager.yaml
+- keda.yaml
