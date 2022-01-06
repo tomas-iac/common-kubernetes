@@ -3,3 +3,4 @@ resources:
 
 patchesStrategicMerge:
 - cert-manager.yaml
+- keda.yaml
