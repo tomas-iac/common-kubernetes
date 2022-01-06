@@ -19,8 +19,8 @@ spec:
         kind: HelmRepository
         name: cert-manager
       version: 1.6.1
-      values:
-        installCRDs: true
-        prometheus:
-          enabled: true
-  interval: 1m0s
+    values:
+      installCRDs: true
+      prometheus:
+        enabled: true
+  interval: 1m0s`
