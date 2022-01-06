@@ -1,4 +1,9 @@
 # Common Kubernetes cluster configuration for GitOps
+This repo will be used as overall automation demo.
+
+
+Steps for standalone deployment:
+
 ```
 # Create resource group
 az group create -n aks -l westeurope
@@ -96,5 +101,4 @@ az k8s-configuration flux create -c project2-prod-aks \
     --branch main  \
     --interval 60s \
     --kustomization name=infra path=/clusters/project2-prod-aks prune=true sync_interval=60s retry_interval=60s
-
 ```
