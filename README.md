@@ -15,7 +15,7 @@ az k8s-configuration flux create -n common \
     -u https://github.com/tomas-iac/common-kubernetes.git \
     --branch main  \
     --interval 60 \
-    --kustomization name=infra path=./ prune=true sync_interval=60s retry_interval=60s
+    --kustomization name=infra path=/environments/prod prune=true sync_interval=60s retry_interval=60s
 
 az k8s-configuration flux show -g aks -c aks -n common -t managedClusters
     
