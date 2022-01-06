@@ -19,7 +19,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: cert-manager
-      version: 1.6.1
+      version: 1.4.0
   values:
     installCRDs: true
     prometheus:
