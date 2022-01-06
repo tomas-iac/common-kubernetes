@@ -15,6 +15,9 @@ az network vnet subnet create -n aks-subnet -g aks --vnet-name project2-prod-vne
 az network vnet subnet create -n lb-subnet -g aks --vnet-name project2-prod-vnet --address-prefix 10.2.1.0/24
 
 # Create clusters
+az identity create -n aks-identity -g aks
+az role assignment create --role Contributor -g aks --assignee $(az identity show -n aks-identity -g aks --query clientId -o tsv)
+
 az aks create -n project1-prod-aks \
     -c 1 \
     -s Standard_B2ms \
@@ -24,6 +27,8 @@ az aks create -n project1-prod-aks \
     --vnet-subnet-id $(az network vnet subnet show -n aks-subnet -g aks --vnet-name project1-prod-vnet --query id -o tsv) \
     --service-cidr 172.16.0.0/22 \
     --dns-service-ip 172.16.0.10 \
+    --assign-identity $(az identity show -n aks-identity -g aks --query id -o tsv) \
+    --assign-kubelet-identity $(az identity show -n aks-identity -g aks --query id -o tsv) \
     -y --no-wait
 az aks create -n project1-staging-aks \
     -c 1 \
@@ -34,6 +39,8 @@ az aks create -n project1-staging-aks \
     --vnet-subnet-id $(az network vnet subnet show -n aks-subnet -g aks --vnet-name project1-staging-vnet --query id -o tsv) \
     --service-cidr 172.16.0.0/22 \
     --dns-service-ip 172.16.0.10 \
+    --assign-identity $(az identity show -n aks-identity -g aks --query id -o tsv) \
+    --assign-kubelet-identity $(az identity show -n aks-identity -g aks --query id -o tsv) \
     -y --no-wait
 az aks create -n project2-prod-aks \
     -c 1 \
@@ -44,6 +51,8 @@ az aks create -n project2-prod-aks \
     --vnet-subnet-id $(az network vnet subnet show -n aks-subnet -g aks --vnet-name project2-prod-vnet --query id -o tsv) \
     --service-cidr 172.16.0.0/22 \
     --dns-service-ip 172.16.0.10 \
+    --assign-identity $(az identity show -n aks-identity -g aks --query id -o tsv) \
+    --assign-kubelet-identity $(az identity show -n aks-identity -g aks --query id -o tsv) \
     -y --no-wait
 
 # Get credentials

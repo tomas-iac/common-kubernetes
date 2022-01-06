@@ -5,3 +5,6 @@ patchesStrategicMerge:
 - cert-manager.yaml
 - keda.yaml
 - nginx-ingress.yaml
+
+commonLabels:
+    clusterEnvironment: prod
