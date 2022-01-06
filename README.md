@@ -6,7 +6,7 @@ az aks get-credentials -n aks -g aks --admin --overwrite-existing
 az extension update -n k8s-configuration
 az extension update -n k8s-extension
 
-az k8s-configuration flux create -n gitops-demo \
+az k8s-configuration flux create -n common \
     -g aks \
     -c aks \
     --namespace gitops \
@@ -14,9 +14,10 @@ az k8s-configuration flux create -n gitops-demo \
     --scope cluster \
     -u https://github.com/tomas-iac/common-kubernetes.git \
     --branch main  \
-    --kustomization name=infra path=./ prune=true sync_interval=60 retry_interval=60
+    --interval 60 \
+    --kustomization name=infra path=./ prune=true sync_interval=60s retry_interval=60s
 
-az k8s-configuration flux show -g aks -c aks -n gitops-demo -t managedClusters
+az k8s-configuration flux show -g aks -c aks -n common -t managedClusters
     
     \
     --kustomization name=apps path=./apps/staging prune=true dependsOn=["infra"]
