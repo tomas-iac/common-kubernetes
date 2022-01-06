@@ -4,3 +4,4 @@ resources:
 patchesStrategicMerge:
 - cert-manager.yaml
 - keda.yaml
+- nginx-ingress.yaml

@@ -2,3 +2,4 @@ resources:
 - namespaces.yaml
 - cert-manager.yaml
 - keda.yaml
+- nginx-ingress.yaml

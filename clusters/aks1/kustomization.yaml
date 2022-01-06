@@ -1,0 +1,5 @@
+resources:
+- ../../environments/prod
+
+patchesStrategicMerge:
+  - nginx-ingress.yaml
