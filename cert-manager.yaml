@@ -24,4 +24,4 @@ spec:
     installCRDs: true
     prometheus:
       enabled: true
-  interval: 1m0s`
+  interval: 1m0s
