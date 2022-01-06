@@ -14,7 +14,7 @@ az k8s-configuration flux create -n gitops-demo \
     --scope cluster \
     -u https://github.com/tomas-iac/common-kubernetes.git \
     --branch main  \
-    --kustomization name=infra path=./ prune=true 
+    --kustomization name=infra path=./ prune=true sync_interval=60 retry_interval=60
 
 az k8s-configuration flux show -g aks -c aks -n gitops-demo -t managedClusters
     
