@@ -1,5 +1,5 @@
 # Common Kubernetes cluster configuration for GitOps
-This repo will be used as overall automation demo.
+This repo will be used as part of overall automation demo.
 
 
 Steps for standalone deployment:
